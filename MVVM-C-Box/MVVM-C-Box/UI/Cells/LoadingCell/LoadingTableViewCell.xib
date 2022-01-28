@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingTableViewCell" customModule="MoviesCleanSwift" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingTableViewCell" rowHeight="70" id="enH-Wo-aW5" customClass="LoadingTableViewCell" customModule="MoviesCleanSwift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="enH-Wo-aW5" id="jpb-mb-VAV">
+                <rect key="frame" x="0.0" y="0.0" width="416" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCX-gc-mtU">
+                        <rect key="frame" x="0.0" y="0.0" width="416" height="70"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="M0f-VH-cZs">
+                                <rect key="frame" x="198" y="25" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="M0f-VH-cZs" firstAttribute="top" secondItem="QCX-gc-mtU" secondAttribute="top" constant="25" id="BcY-A1-fEU"/>
+                            <constraint firstItem="M0f-VH-cZs" firstAttribute="centerX" secondItem="QCX-gc-mtU" secondAttribute="centerX" id="Cyw-SW-Iil"/>
+                            <constraint firstItem="M0f-VH-cZs" firstAttribute="centerY" secondItem="QCX-gc-mtU" secondAttribute="centerY" id="KQP-Tg-Qow"/>
+                            <constraint firstAttribute="bottom" secondItem="M0f-VH-cZs" secondAttribute="bottom" constant="25" id="uxR-vg-TPD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="QCX-gc-mtU" secondAttribute="bottom" id="5Qu-U6-bu9"/>
+                    <constraint firstItem="QCX-gc-mtU" firstAttribute="leading" secondItem="jpb-mb-VAV" secondAttribute="leading" id="QNX-3Q-ZhT"/>
+                    <constraint firstItem="QCX-gc-mtU" firstAttribute="top" secondItem="jpb-mb-VAV" secondAttribute="top" id="ZWb-30-HND"/>
+                    <constraint firstAttribute="trailing" secondItem="QCX-gc-mtU" secondAttribute="trailing" id="fjK-Hw-jGd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="activityIndicator" destination="M0f-VH-cZs" id="isT-At-uVf"/>
+            </connections>
+            <point key="canvasLocation" x="288.40579710144931" y="7.3660714285714279"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

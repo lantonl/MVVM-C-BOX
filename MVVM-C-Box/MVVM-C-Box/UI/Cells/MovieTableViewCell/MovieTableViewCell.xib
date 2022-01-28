@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieTableViewCell" customModule="MoviesCleanSwift" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="111" id="H9V-u3-eiA" customClass="MovieTableViewCell" customModule="MoviesCleanSwift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="475" height="111"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H9V-u3-eiA" id="bf7-lH-zQW">
+                <rect key="frame" x="0.0" y="0.0" width="475" height="111"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qOW-GK-hBu">
+                        <rect key="frame" x="12" y="5" width="451" height="101"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZo-dG-5Cb">
+                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdO-rb-2op">
+                                <rect key="frame" x="0.0" y="34" width="41.5" height="29.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrF-4J-JFi">
+                                <rect key="frame" x="0.0" y="67.5" width="41.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="qOW-GK-hBu" secondAttribute="bottom" constant="5" id="azA-yQ-AU6"/>
+                    <constraint firstItem="qOW-GK-hBu" firstAttribute="top" secondItem="bf7-lH-zQW" secondAttribute="top" constant="5" id="gLP-RZ-SB2"/>
+                    <constraint firstAttribute="trailing" secondItem="qOW-GK-hBu" secondAttribute="trailing" constant="12" id="op8-pd-66f"/>
+                    <constraint firstItem="qOW-GK-hBu" firstAttribute="leading" secondItem="bf7-lH-zQW" secondAttribute="leading" constant="12" id="y3m-y9-cXD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="rateLabel" destination="GrF-4J-JFi" id="5Au-Im-Wfw"/>
+                <outlet property="releaseDateLabel" destination="ZdO-rb-2op" id="bpk-a2-N4R"/>
+                <outlet property="titleLabel" destination="cZo-dG-5Cb" id="wKL-mY-rnx"/>
+            </connections>
+            <point key="canvasLocation" x="102.17391304347827" y="116.18303571428571"/>
+        </tableViewCell>
+    </objects>
+</document>
