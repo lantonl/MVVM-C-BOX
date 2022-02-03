@@ -22,3 +22,17 @@ extension ModuleConfiguratorBased where Self: UIViewController {
         return viewController
     }
 }
+
+
+protocol ViewModelBased {
+    associatedtype ViewModelType
+    var viewModel: ViewModelType! { get set }
+}
+
+extension ViewModelBased where Self: UIViewController {
+    static func instantiate(with viewModel: ViewModelType) -> Self {
+        var viewController = Self.loadFromNib()
+        viewController.viewModel = viewModel
+        return viewController
+    }
+}

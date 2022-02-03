@@ -32,15 +32,19 @@ private enum MoviesAPIRequestParameters {
 
 protocol MoviesNetworkingServiceProtocol {
     func getMovies(with title: String, page: Int, completion: @escaping (Result<MovieAPIResponse?, Error>) -> Void)
+    func getFirstBatchOfMovies(for request: MoviesList.Movies.Request, completion: @escaping (Result<MovieAPIResponse?, Error>) -> Void)
+    func getNextBatchOfMovies(for request: MoviesList.Movies.Request, completion: @escaping (Result<MovieAPIResponse?, Error>) -> Void)
 }
 
-struct MoviesNetworkingService: BaseNetworkingService, MoviesNetworkingServiceProtocol {
+final class MoviesNetworkingService: BaseNetworkingService, MoviesNetworkingServiceProtocol {
     private struct Constants {
         static let firstPageIndex = 1
     }
     
     var baseUrl: URL!
     var sessionManager: URLSessionProtocol
+    
+    private var moviesAPIResponse: MovieAPIResponse?
     
     init(baseUrlString: String = MoviesAPIConfiguration.baseURL, sessionManager: URLSessionProtocol = URLSession.base) {
         guard let baseUrl = URL(string: baseUrlString) else {
@@ -66,6 +70,46 @@ struct MoviesNetworkingService: BaseNetworkingService, MoviesNetworkingServicePr
                 } catch {
                     completion(.failure(NetworkResponseError.unableToDecode))
                 }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getFirstBatchOfMovies(for request: MoviesList.Movies.Request, completion: @escaping (Result<MovieAPIResponse?, Error>) -> Void) {
+//        guard !request.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+//            presenter?.showEmtySearchRequestWarningMessage()
+//            return
+//        }
+        
+        getMovies(with: request.title, page: Constants.firstPageIndex) { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.moviesAPIResponse = response
+                
+//                guard let moviesAPIResponse = self?.moviesAPIResponse, !moviesAPIResponse.movies.isEmpty else {
+//                    self?.presenter?.showEmptySearchResultMessage()
+//                    return
+//                }
+                
+                completion(.success(response))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func getNextBatchOfMovies(for request: MoviesList.Movies.Request, completion: @escaping (Result<MovieAPIResponse?, Error>) -> Void) {
+        guard let pageToRequest = moviesAPIResponse?.nextPage else {
+            completion(.success(moviesAPIResponse))
+            return
+        }
+        
+        getMovies(with: request.title, page: pageToRequest) { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.moviesAPIResponse = response
+                completion(.success(response))
             case .failure(let error):
                 completion(.failure(error))
             }

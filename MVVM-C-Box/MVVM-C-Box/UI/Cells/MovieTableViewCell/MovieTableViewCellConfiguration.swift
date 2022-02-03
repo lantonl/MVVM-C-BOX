@@ -25,16 +25,20 @@ struct MovieTableViewCellConfiguration: BaseTableviewCellConfiguration {
     let releaseDateHidden: Bool
     let rateLabelHidden: Bool
     
-    init(title: String?, releaseDate: String?, rate: Double?) {
-        self.titleLabelText = title
-        self.titleLabelHidden = title == nil ? true : false
+    let movie: Movie
+    
+    init(movie: Movie) {
+        self.movie = movie
         
-        self.releaseDateText = "\(Constnats.releaseDatePlaceholderText) \(releaseDate ?? "")"
-        self.releaseDateHidden = releaseDate == nil ? true : false
+        self.titleLabelText = movie.title
+        self.titleLabelHidden = movie.title == nil ? true : false
+        
+        self.releaseDateText = "\(Constnats.releaseDatePlaceholderText) \(movie.releaseDate ?? "")"
+        self.releaseDateHidden = movie.releaseDate == nil ? true : false
         
         
         
-        self.rateLabelText = "\(Constnats.ratingPlaceholder) \(rate?.string(maximumFractionDigits: Constnats.maximumFractionDigitsForRating) ?? "")"
-        self.rateLabelHidden = rate == nil ? true : false
+        self.rateLabelText = "\(Constnats.ratingPlaceholder) \(movie.rating?.string(maximumFractionDigits: Constnats.maximumFractionDigitsForRating) ?? "")"
+        self.rateLabelHidden = movie.rating == nil ? true : false
     }
 }
